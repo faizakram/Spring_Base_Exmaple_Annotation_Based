@@ -1,11 +1,14 @@
 package com.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.model.UserDataForm;
 import com.spring.service.SpringService;
 import com.spring.util.common.CommonConstants;
 import com.spring.util.success.response.ResponseJson;
@@ -35,4 +38,12 @@ public class SpringController {
 		responseJson.setResponse(service.exitVehicle(vehicleNo));
 		return responseJson;
 	}
+	
+	/*you can also remove @ModelAttribute that works same*/
+	@RequestMapping(value = "userInfoTest" , method = RequestMethod.POST)
+	public ResponseJson getInfo(@ModelAttribute UserDataForm user) {
+		responseJson.setResponse("Class Info" + user);
+		return responseJson;
+	}
+	
 }

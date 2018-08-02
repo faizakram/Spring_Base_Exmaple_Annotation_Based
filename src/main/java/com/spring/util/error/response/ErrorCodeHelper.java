@@ -1,14 +1,18 @@
 package com.spring.util.error.response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+
+import com.spring.util.common.CommonConstants;
 
 /**
  * To provide http error code and regarding description
  *
  */
 @Component
+@PropertySource({ CommonConstants.ERROR_PROPERTIES})
 public class ErrorCodeHelper {
 
 

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.spring.model.Vehicle;
@@ -95,6 +96,12 @@ public class SpringServiceImpl implements SpringService {
 		cal.setTime(date);
 		int day = cal.get(Calendar.DAY_OF_WEEK);
 		return day == Calendar.SUNDAY || day == Calendar.SATURDAY;
+	}
+	
+	@Scheduled(cron = "0 0/1 * 1/1 * ?")
+	public void schedulerCall()
+	{
+		System.out.println("Calling");
 	}
 
 }

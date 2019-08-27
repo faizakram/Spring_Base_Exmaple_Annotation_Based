@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.model.UserDataForm;
 import com.spring.service.SpringService;
@@ -43,6 +44,15 @@ public class SpringController {
 	@RequestMapping(value = "userInfoTest" , method = RequestMethod.POST)
 	public ResponseJson getInfo(@ModelAttribute UserDataForm user) {
 		responseJson.setResponse("Class Info" + user);
+		return responseJson;
+	}
+	
+	
+	@PostMapping("fileUpload")
+	public ResponseJson getFile(@RequestParam("file") MultipartFile file)
+	{responseJson = new ResponseJson();
+		responseJson.setResponseDescription("File Updloaded");
+		responseJson.setResponse(file);
 		return responseJson;
 	}
 	

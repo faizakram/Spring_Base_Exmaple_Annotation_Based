@@ -18,15 +18,15 @@ import com.spring.util.common.CommonConstants;
 @ComponentScan(basePackages = { CommonConstants.BASE_PACKAGE })
 public class WebMvcConfig {
 
-	// CommonsMultipartResolver
-	/*@Bean
+	public static final Integer MAX_UPLOAD_SIZE = 31 * 1024 * 1024;
+	public static final String UTF_8 = "UTF-8";
+	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-		// resolver.setMaxInMemorySize(50000000);
-		resolver.setDefaultEncoding("utf-8");
+		resolver.setMaxUploadSize(MAX_UPLOAD_SIZE);
+		resolver.setDefaultEncoding(UTF_8);
 		return resolver;
 	}
-*/
 	@Bean(name = "asyncExecutor")
     public Executor asyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
